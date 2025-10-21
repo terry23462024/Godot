@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccmhowx6x3bei"]
+
+[ext_resource type="Script" uid="uid://cl6smvdede43j" path="res://enemy.gd" id="1_7k104"]
+[ext_resource type="AudioStream" uid="uid://bw8rb6inmvfk5" path="res://asset/105413__rendensh__explode5.ogg" id="2_4gyqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
+size = Vector2(40, 40)
+
+[node name="Enemy" type="Area2D" groups=["enemies"]]
+script = ExtResource("1_7k104")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7xaro")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4gyqm")

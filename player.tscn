@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://jmehwuuhweha"]
+
+[ext_resource type="Texture2D" uid="uid://brq8y1lnxa6r6" path="res://asset/player.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dyipccinxb0dr" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://d3rmp1sei6cdm" path="res://bullet.tscn" id="2_i3pqv"]
+[ext_resource type="AudioStream" uid="uid://d2ws8d0s518" path="res://asset/421704__bolkmar__sfx-laser-shoot-02.wav" id="4_hqtel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(93, 66)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_onrkg")
+bullet_scene = ExtResource("2_i3pqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.1415927
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hqtel")
